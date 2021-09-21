@@ -1,0 +1,13 @@
+{
+	"id": 14,
+	"firstName": "Koushik",
+	"lastName": "Ruidas",
+	"active": true,
+	"address": {
+		"street": "18/17 Tilak Road",
+		"city": "Durgapur",
+		"district": "Burdwan",
+		"state": "West Bengal",
+		"country": "India"
+	}
+}
