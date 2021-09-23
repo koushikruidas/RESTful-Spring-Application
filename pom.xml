@@ -59,6 +59,13 @@
 			<version>5.5.7.Final</version>
 		</dependency>
 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.26</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
