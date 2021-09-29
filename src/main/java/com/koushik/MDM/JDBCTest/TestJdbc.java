@@ -1,4 +1,4 @@
-package com.koushik.JDBCTest;
+package com.koushik.MDM.JDBCTest;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

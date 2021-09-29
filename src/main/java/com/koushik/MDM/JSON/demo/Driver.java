@@ -1,4 +1,4 @@
-package com.koushik.JSON.demo;
+package com.koushik.MDM.JSON.demo;
 
 
 
