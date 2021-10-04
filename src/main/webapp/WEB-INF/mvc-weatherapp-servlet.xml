@@ -16,7 +16,9 @@
 
 	<!-- Add support for component scanning -->
 	<context:component-scan
-		base-package="com.koushik" />
+		base-package="com.koushik.MDM" />
+
+	<mvc:annotation-driven />
 	<!-- Define Spring MVC view resolver -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -29,8 +31,7 @@
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl"
-			value="jdbc:mysql://127.0.0.1:3306/mdm"
-			 />
+			value="jdbc:mysql://127.0.0.1:3306/mdm" />
 		<property name="user" value="weatherApp-database" />
 		<property name="password" value="weather" />
 
@@ -41,14 +42,15 @@
 	</bean>
 
 	<!-- Step 2: Setup Hibernate session factory -->
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
-		<property name="packagesToScan"
-			value="com.koushik.MDM" />
+		<property name="packagesToScan" value="com.koushik.MDM.entity" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
 			</props>
 		</property>
@@ -63,5 +65,4 @@
 	<!-- Step 4: Enable configuration of transactional behavior based on annotations -->
 	<tx:annotation-driven
 		transaction-manager="myTransactionManager" />
-
 </beans>
