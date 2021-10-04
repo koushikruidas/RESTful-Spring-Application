@@ -17,7 +17,7 @@
 			<c:out value="${i.firstName}" />
 			<p>
 				Last Name:
-				<c:out value="${i.lastName }"></c:out>
+				<c:out value="${i.lastName }"></c:out> 	
 			<p>
 				Phone Number:
 				<c:out value="${i.contactNumber }"></c:out>
