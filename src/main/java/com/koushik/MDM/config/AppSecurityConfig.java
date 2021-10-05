@@ -38,8 +38,12 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 															// to authenticate the username and password.
 															// we do not have to create any controller class for this
 															// request mapping("/authenticateTheUser"). Spring 
-															// automatically spring will handle everything.
-				.permitAll();
+															// automatically spring will handle everything
+															// AS LONG AS we are using "/authenticateTheUser" request mapping
+															// in our login page action field.
+				.permitAll()
+				.and()
+				.logout().permitAll();
 	}
 
 }
