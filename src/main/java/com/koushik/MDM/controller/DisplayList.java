@@ -14,7 +14,7 @@ import com.koushik.MDM.services.CustomerService;
 
 @Controller
 @RequestMapping("/display")
-public class DisplayName {
+public class DisplayList {
 	@Autowired
 	private CustomerService customerService;
 	
@@ -24,7 +24,7 @@ public class DisplayName {
 	public String showName(Model model) {
 		List<Customer> customers = customerService.getCustomers();
 		model.addAttribute("customerList", customers);
-		return "hello";
+		return "show-customer-list";
 	}
 	
 	@RequestMapping("/addCustomer")
