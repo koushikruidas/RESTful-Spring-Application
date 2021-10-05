@@ -11,7 +11,7 @@
 .error {
 	color: red;
 }
-</style>
+</style> 
 </head>
 <body>
 	<h2>My Custom login form</h2>
