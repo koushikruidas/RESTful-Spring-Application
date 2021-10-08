@@ -11,10 +11,11 @@
 .error {
 	color: red;
 }
-</style> 
+</style>
+<link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-	<h2>My Custom login form</h2>
+	<%-- <h2>My Custom login form</h2>
 	<form:form
 		action="${pageContext.request.contextPath }/authenticateTheUser"
 		method="POST">
@@ -28,6 +29,6 @@
 		<p>
 			Password: <input type="password" name="password" /> <input
 				type="submit" value="Login" />
-	</form:form>
+	</form:form> --%>
 </body>
 </html>

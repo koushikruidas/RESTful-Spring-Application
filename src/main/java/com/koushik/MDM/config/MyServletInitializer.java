@@ -6,8 +6,7 @@ public class MyServletInitializer extends AbstractAnnotationConfigDispatcherServ
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Class[] {AppServletConfig.class};
 	}
 
 	@Override

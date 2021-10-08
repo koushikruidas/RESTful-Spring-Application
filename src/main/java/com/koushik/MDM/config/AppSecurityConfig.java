@@ -30,11 +30,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
-//				.loginPage("/myLogin") 	// personal login page controller mapping 
+				.loginPage("/fancy-login") 	// personal login page controller mapping 
 										// for this url("/myLogin") we have to create a controller
 										// with a mapping ("/myLogin").
 				
-//				.loginProcessingUrl("/authenticateTheUser") // spring will use this url ("/authenticateTheUser") 
+				.loginProcessingUrl("/authenticateTheUser") // spring will use this url ("/authenticateTheUser") 
 															// to authenticate the username and password.
 															// we do not have to create any controller class for this
 															// request mapping("/authenticateTheUser"). Spring 
