@@ -1,10 +1,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html>
 <body>
-	<h2>Hello Koushik Ruidas!</h2>
+	<h2>Hello <sec:authentication property="principal.username" /></h2> <!-- To display the logged user name. -->
+	<p> Roles: <sec:authentication property="principal.authorities"/> </p> <!-- To display the user role. -->
 	<p>
 		link to <a href="display/addCustomer">add customer</a>
 	</p>
