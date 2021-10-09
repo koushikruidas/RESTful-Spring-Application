@@ -18,16 +18,20 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Add our users for in-memory authentication
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		auth.inMemoryAuthentication()
-			.withUser(users.username("Koushik").password("helloWorld").roles("Admin"))
-			.withUser(users.username("Tandra").password("helloWorld").roles("Employee"))
-			.withUser(users.username("Tanmoy").password("helloWorld").roles("Manager"));
+			.withUser(users.username("Koushik").password("helloWorld").roles("EMPLOYEE","ADMIN"))
+			.withUser(users.username("Tandra").password("helloWorld").roles("EMPLOYEE"))
+			.withUser(users.username("Tanmoy").password("helloWorld").roles("EMPLOYEE","MANAGER"));
 		
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.anyRequest().authenticated()
+//		.anyRequest().authenticated() 
+		// Instead of any request we want to add division of roles
+		.antMatchers("/").hasRole("EMPLOYEE")
+		.antMatchers("/leaders/**").hasRole("MANAGER")
+		.antMatchers("/system/**").hasRole("ADMIN")
 			.and()
 			.formLogin()
 				.loginPage("/fancy-login") 	// personal login page controller mapping 
