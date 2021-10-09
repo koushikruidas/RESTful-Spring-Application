@@ -9,10 +9,14 @@
 	<h1>This is Index page</h1>
 	<h2>Hello <sec:authentication property="principal.username" /></h2> <!-- To display the logged user name. -->
 	<p> Roles: <sec:authentication property="principal.authorities"/> </p> <!-- To display the user role. -->
-	<hr>
 		<!-- Add a link only for managers -->
+		<%-- <sec:authorize access="hasRole('MANAGER')"> --%>
 		<a href="${pageContext.request.contextPath }/leaders/home">Managers Forum</a>
-	</hr>
+		<%-- </sec:authorize> --%>
+		<br>
+		<%-- <sec:authorize access="hasRole('ADMIN')"> --%>
+		<a href="${pageContext.request.contextPath }/systems/home">Administration page</a>
+<%-- 		</sec:authorize> --%>
 	<p>
 		link to <a href="display/addCustomer">add customer</a>
 	</p>

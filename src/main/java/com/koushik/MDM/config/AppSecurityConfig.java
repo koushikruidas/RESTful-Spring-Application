@@ -31,7 +31,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Instead of any request we want to add division of roles
 		.antMatchers("/").hasRole("EMPLOYEE")
 		.antMatchers("/leaders/**").hasRole("MANAGER")
-		.antMatchers("/system/**").hasRole("ADMIN")
+		.antMatchers("/systems/**").hasRole("ADMIN")
 			.and()
 			.formLogin()
 				.loginPage("/fancy-login") 	// personal login page controller mapping 
@@ -47,7 +47,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 															// in our login page action field.
 				.permitAll()
 				.and()
-				.logout().permitAll();
+				.logout().permitAll()
+				.and()
+				.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
 }
