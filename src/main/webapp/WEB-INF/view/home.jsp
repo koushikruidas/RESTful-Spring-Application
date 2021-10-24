@@ -17,6 +17,7 @@
 		<sec:authorize access="hasRole('ADMIN')">
 		<a href="${pageContext.request.contextPath }/systems/home">Administration page</a>
 		</sec:authorize>
+		<h1> "${pageContext.request.contextPath }"/</h1>
 	<p>
 		link to <a href="display/addCustomer">add customer</a>
 	</p>

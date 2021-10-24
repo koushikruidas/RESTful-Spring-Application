@@ -1,5 +1,8 @@
 package com.koushik.MDM.config;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,17 +14,29 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 @Configuration // Configuration class for spring security
 @EnableWebSecurity
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	// Adding a reference to our security datasource
+	
+	@Autowired
+	private DataSource mySecurityDataSource;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		// Add our users for in-memory authentication
-		UserBuilder users = User.withDefaultPasswordEncoder();
-		auth.inMemoryAuthentication()
-			.withUser(users.username("Koushik").password("hello").roles("EMPLOYEE","ADMIN"))
-			.withUser(users.username("Tandra").password("hello").roles("EMPLOYEE"))
-			.withUser(users.username("Tanmoy").password("hello").roles("EMPLOYEE","MANAGER"));
+		/*
+		 * UserBuilder users = User.withDefaultPasswordEncoder();
+		 * auth.inMemoryAuthentication()
+		 * .withUser(users.username("Koushik").password("hello").roles("EMPLOYEE",
+		 * "ADMIN"))
+		 * .withUser(users.username("Tandra").password("hello").roles("EMPLOYEE"))
+		 * .withUser(users.username("Tanmoy").password("hello").roles("EMPLOYEE",
+		 * "MANAGER"));
+		 */		
 		
+		// Above are hardcoded example now we are going to use database 
+		// Use JDBC authentication
+		auth.jdbcAuthentication().dataSource(mySecurityDataSource);
 	}
 	
 	@Override
